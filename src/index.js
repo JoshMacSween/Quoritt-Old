@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom'
 import QuestionCard from './QCard/QuestionCard'
 import { Container, Row, Col } from 'react-bootstrap'
 import './index.css'
+import Nvbr from './Nav/Nvbr'
 
 function App() {
   return (
-    <Container>
+    <div>
+      <Nvbr /><br/>
       <div className='App'>
         <span className="cards">
           <ul>
@@ -16,7 +18,7 @@ function App() {
           </ul>
         </span>
       </div>
-    </Container>
+    </div>
   )
 }
 
