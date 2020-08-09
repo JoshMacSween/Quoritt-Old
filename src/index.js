@@ -4,20 +4,15 @@ import QuestionCard from './QCard/QuestionCard'
 import { Container, Row, Col } from 'react-bootstrap'
 import './index.css'
 import Nvbr from './Nav/Nvbr'
+import Cardgrid from './QCard/Cardgrid'
 
 function App() {
   return (
-    <div>
-      <Nvbr /><br/>
-      <div className='App'>
-        <span className="cards">
-          <ul>
-            <li><QuestionCard /></li>
-            <li><QuestionCard /></li>
-            <li><QuestionCard /></li>
-          </ul>
-        </span>
-      </div>
+    <div className='App'>
+      <Nvbr />
+      <span className='cards'>
+        <Cardgrid />
+      </span>
     </div>
   )
 }

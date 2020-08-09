@@ -15,6 +15,7 @@ export default function Nvbr() {
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>Quoritt</Navbar.Brand>
       </Navbar>
+      <br /> {/* use styling here */}
     </div>
   )
 }

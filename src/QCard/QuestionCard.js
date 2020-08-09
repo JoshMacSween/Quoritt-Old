@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, Col, Row  } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
 
