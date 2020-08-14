@@ -5,14 +5,14 @@ import QuestionCard from './QuestionCard'
 export default function Cardgrid() {
   return (
     <div>
-      <Container fluid>
-        <Row>
-          <Col xl>
-            <QuestionCard />
-            <QuestionCard />
-          </Col>
-        </Row>
-      </Container>
+      <ul>
+        <li>
+          <QuestionCard />
+        </li>
+        <li>
+          <QuestionCard />
+        </li>
+      </ul>
     </div>
   )
 }
