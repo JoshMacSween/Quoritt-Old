@@ -6,11 +6,13 @@ import { QuestionData } from './QuestionData'
 export default function Cardgrid() {
   return (
     <div>
-      {QuestionData.map((q) => (
-        <Row key={q.id}>
-          <QuestionCard q={q} />
-        </Row>
-      ))}
+      <ul>
+        {QuestionData.map((props) => (
+          <li key={props.id}>
+            <QuestionCard name={props.name} question={props.question}/>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

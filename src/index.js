@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import QuestionCard from './QCard/QuestionCard'
-import { Container, Row, Col } from 'react-bootstrap'
 import './index.css'
 import Nvbr from './Nav/Nvbr'
 import Cardgrid from './QCard/Cardgrid'

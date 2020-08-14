@@ -2,7 +2,6 @@ import React from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
-import { QuestionData } from './QuestionData'
 
 export default function QuestionCard(props) {
   return (
@@ -10,14 +9,8 @@ export default function QuestionCard(props) {
       <Card className='Qcard'>
         <Card.Body>
           {/* <Avatar avatar={testQuest.avatar} /> */}
-        <Col>
-          <Row>
-            @<i>{props.q.name}</i>
-          </Row>
-          <Row>
-            {props.q.question}
-          </Row>
-        </Col>
+            <h2>@<i>{props.name}</i></h2>
+            <p>{props.question}</p>
           <Button>Reply</Button>
         </Card.Body>
       </Card>

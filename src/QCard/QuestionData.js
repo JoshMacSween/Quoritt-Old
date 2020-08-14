@@ -8,5 +8,10 @@ export const QuestionData = [
     id: 2,
     name: "Henry Zebrowski",
     question: "How do we know the reptilians aren't in power?"
+  },
+  {
+    id: 3,
+    name: "The Real Eric Andre",
+    question: "Eric Andre for prez, who's with me?"
   }
 ]

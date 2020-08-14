@@ -1,17 +1,18 @@
 .Qcard {
-  min-width: 100%;
+  max-width: 40%;
   margin-bottom: 1em;
-}
-
-.card h1 {
-  font-family: Roboto Slab;
-  font-size: 1.5em;
-}
-
-.card h2,h3 {
-  font-size: 1em;
-  color: black;
   font-family: droid sans;
+  font-size: 1em;
+  /* font-family: droid sans; */
+}
+
+.Qcard h2 {
+  font-size: 1.5em;
+  font-family: Roboto Slab;
+}
+
+.app {
+  min-height: 100%;
 }
 
 .avatar img {
