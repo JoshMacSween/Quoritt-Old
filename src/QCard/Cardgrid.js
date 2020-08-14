@@ -1,18 +1,16 @@
 import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
 import QuestionCard from './QuestionCard'
+import { QuestionData } from './QuestionData'
 
 export default function Cardgrid() {
   return (
     <div>
-      <Container fluid>
-        <Row>
-          <Col xl>
-            <QuestionCard />
-            <QuestionCard />
-          </Col>
+      {QuestionData.map((q) => (
+        <Row key={q.id}>
+          <QuestionCard q={q} />
         </Row>
-      </Container>
+      ))}
     </div>
   )
 }

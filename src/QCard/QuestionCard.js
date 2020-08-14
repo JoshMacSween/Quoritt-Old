@@ -1,46 +1,35 @@
 import React from 'react'
-import { Button, Card, Col, Row  } from 'react-bootstrap'
+import { Button, Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
+import { QuestionData } from './QuestionData'
 
-export default function QuestionCard() {
+export default function QuestionCard(props) {
   return (
-    <span>
-      <Card>
+    <div>
+      <Card className='card'>
         <Card.Body>
-          <Avatar avatar={testQuest.avatar} />
-          <Card.Text>
-            <i>@{testQuest.user}</i> <br/>
-            <QuestionText question={testQuest.question} />
-          </Card.Text>
-            <Button>Reply</Button>
+          {/* <Avatar avatar={testQuest.avatar} /> */}
+        <Col>
+          <Row>
+            @<i>{props.q.name}</i>
+          </Row>
+          <Row>
+            {props.q.question}
+          </Row>
+        </Col>
+          <Button>Reply</Button>
         </Card.Body>
       </Card>
-    </span>
+    </div>
   )
 }
 
-function Avatar({ hash }) {
-  const url = `https://www.gravatar.com/avatar/${hash}`
-  return (
-    <span className="avatar">
-      <img src={url} className='avatar' alt="avatar" />
-    </span>
-  )
-}
-
-function QuestionText(props) {
-  const Question = props.question
-  // const Question [question, setQuestion] DESTRUCTURE THIS
-  return (
-    <span>
-      {Question}
-    </span>
-  )
-}
-
-const testQuest = {
-  user: "Ohmsford Lombsloft",
-  question: 'When will Great Cthulhu rise from his sleep in R\'lyeh?',
-  avatar: 'user',
-}
+// function Avatar({ hash }) {
+//   const url = `https://www.gravatar.com/avatar/${hash}`
+//   return (
+//     <span className="avatar">
+//       <img src={url} className='avatar' alt="avatar" />
+//     </span>
+//   )
+// }
