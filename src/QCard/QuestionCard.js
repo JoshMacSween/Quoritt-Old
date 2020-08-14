@@ -7,7 +7,7 @@ import { QuestionData } from './QuestionData'
 export default function QuestionCard(props) {
   return (
     <div>
-      <Card className='card'>
+      <Card className='Qcard'>
         <Card.Body>
           {/* <Avatar avatar={testQuest.avatar} /> */}
         <Col>
