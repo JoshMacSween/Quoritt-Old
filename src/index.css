@@ -1,8 +1,23 @@
 .App, body{
-  background-color: rgba(96, 202, 176);
+  background-color: rgb(96, 202, 197);
   /* background-color: #ccc; */
 }
 
 .App li {
   list-style: none;
+}
+
+.App button {
+  background-color: #6560CF;
+  border: 1px solid #6560CF;
+}
+
+.jumbotron {
+  max-width: 95%;
+  margin-left: 2.5%;
+  color: #FFF;
+}
+
+.jumbotron:hover {
+  background-color: #ccc;
 }

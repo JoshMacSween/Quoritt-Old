@@ -3,7 +3,13 @@
   margin-bottom: 1em;
   font-family: droid sans;
   font-size: 1em;
+  background-color: #fff;
   /* font-family: droid sans; */
+}
+
+.Qcard:hover {
+  background-color: #ccc;
+  transition: 0.4s
 }
 
 .Qcard h2 {
