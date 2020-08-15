@@ -4,12 +4,14 @@ import './index.css'
 import Nvbr from './Nav/Nvbr'
 import Cardgrid from './QCard/Cardgrid'
 import Greet from './Greet'
+import Qform from './QCard/Qform'
 
 function App() {
   return (
     <div className='App'>
       <Nvbr />
       <Greet />
+      {/* <Qform /> */}
       <span className='cards'>
         <Cardgrid />
       </span>
