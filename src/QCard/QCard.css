@@ -12,6 +12,10 @@
   transition: 0.4s
 }
 
+.Qcard button {
+  float: right;
+}
+
 .Qcard h2 {
   font-size: 1.5em;
   font-family: Roboto Slab;

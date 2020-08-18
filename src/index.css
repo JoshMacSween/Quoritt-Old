@@ -1,6 +1,5 @@
 .App, body{
   background-color: rgb(96, 202, 197);
-  /* background-color: #ccc; */
 }
 
 .App li {
@@ -18,6 +17,9 @@
   color: #FFF;
 }
 
+.jumbotron button {
+  float: right;
+}
 .jumbotron:hover {
   background-color: #ccc;
 }
