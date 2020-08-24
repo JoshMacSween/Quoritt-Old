@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Col, Row } from 'react-bootstrap'
+import { Button, Card} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
 
@@ -11,7 +11,7 @@ export default function QuestionCard(props) {
           {/* <Avatar avatar={testQuest.avatar} /> */}
             <h2>@<i>{props.name}</i></h2>
             <p>{props.question}</p>
-          <Button>Reply</Button>
+          <Button onClick={props.handleView}>Reply</Button>
         </Card.Body>
       </Card>
     </div>

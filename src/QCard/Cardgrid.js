@@ -1,18 +1,31 @@
-import React from 'react'
-import { Col, Row, Container } from 'react-bootstrap'
+import React, { useState } from 'react'
 import QuestionCard from './QuestionCard'
 import { QuestionData } from './QuestionData'
+import Qform from './Qform'
 
 export default function Cardgrid() {
+  const [view, setView] = useState('cards')
+
+  const handleForm = () => {
+    setView('form')
+    console.log(`The state is currently ${view}`)
+  }
+
+  const handleSwichCards = () => {
+    setView('cards')
+    console.log(`The state is currently ${view}`)
+  }
+
   return (
     <div>
+      { view === 'cards' ?
       <ul>
         {QuestionData.map((props) => (
           <li key={props.id}>
-            <QuestionCard name={props.name} question={props.question}/>
+            <QuestionCard handleView={handleForm} name={props.name} question={props.question}/>
           </li>
         ))}
-      </ul>
+      </ul> : <Qform handleView={handleSwichCards}/> }
     </div>
   )
 }

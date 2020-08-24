@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
 
-export default function Qform() {
+export default function Qform(props) {
   return (
     <div>
       <Container>
@@ -13,7 +13,7 @@ export default function Qform() {
             placeholder='Ask me anything'
           ></Form.Control>
           <br />
-          <Button>
+          <Button onClick={props.handleView}>
             Send
           </Button>
         </Form>
