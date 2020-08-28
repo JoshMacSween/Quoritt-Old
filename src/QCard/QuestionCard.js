@@ -3,6 +3,7 @@ import { Button, Card} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
 
+
 export default function QuestionCard(props) {
   return (
     <div>

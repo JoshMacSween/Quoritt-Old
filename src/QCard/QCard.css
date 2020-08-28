@@ -30,3 +30,7 @@
   max-height: 3em;
   border-radius: 3px;
 }
+
+.form-buttons {
+  margin: 0.5em
+}

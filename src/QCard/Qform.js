@@ -13,9 +13,10 @@ export default function Qform(props) {
             placeholder='Ask me anything'
           ></Form.Control>
           <br />
-          <Button onClick={props.handleView}>
+          <Button className="form-buttons" onClick={props.handleView}>
             Send
           </Button>
+          <Button className="form-buttons" onClick={props.backHandler}>Back</Button>
         </Form>
       </Container>
     </div>

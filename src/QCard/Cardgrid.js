@@ -16,6 +16,11 @@ export default function Cardgrid() {
     console.log(`The state is currently ${view}`)
   }
 
+  const backHandler = () => {
+    setView('cards')
+    console.log(`Returned to ${view}`)
+  }
+
   return (
     <div>
       { view === 'cards' ?
@@ -25,7 +30,7 @@ export default function Cardgrid() {
             <QuestionCard handleView={handleForm} name={props.name} question={props.question}/>
           </li>
         ))}
-      </ul> : <Qform handleView={handleSwichCards}/> }
+      </ul> : <Qform handleView={handleSwichCards} backHandler={backHandler}/> }
     </div>
   )
 }
