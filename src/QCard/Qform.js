@@ -6,7 +6,7 @@ export default function Qform(props) {
     <div>
       <Container>
         <Form>
-          <Form.Control placeholder='Title'></Form.Control>
+          <Form.Control placeholder={`Responding to card ${props.cardId}`}></Form.Control>
           <br />
           <Form.Control
             as='textarea'

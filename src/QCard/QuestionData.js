@@ -1,4 +1,4 @@
-export const QuestionData = [
+export const questionData = [
   {
     id: 1,
     name: "Ohmsford Lombsloft",

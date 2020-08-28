@@ -11,7 +11,6 @@ function App() {
     <div className='App'>
       <Nvbr />
       <Greet />
-      {/* <Qform /> */}
       <span className='cards'>
         <Cardgrid />
       </span>

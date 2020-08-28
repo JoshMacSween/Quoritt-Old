@@ -1,17 +1,18 @@
 import React from 'react'
-import { Button, Card} from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
-
 
 export default function QuestionCard(props) {
   return (
     <div>
       <Card className='Qcard'>
-        <Card.Body>
+        <Card.Body onClick={() => props.cardSelect(props.cardId)}>
           {/* <Avatar avatar={testQuest.avatar} /> */}
-            <h2>@<i>{props.name}</i></h2>
-            <p>{props.question}</p>
+          <h2>
+            @<i>{props.name}</i>
+          </h2>
+          <p>{props.question}</p>
           <Button onClick={props.handleView}>Reply</Button>
         </Card.Body>
       </Card>
