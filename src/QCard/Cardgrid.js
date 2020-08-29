@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import QuestionCard from './QuestionCard'
-import { questionData } from './QuestionData'
 import Qform from './Qform'
+import {questionData} from '/index.js'
+import axios from 'axios'
 
 export default function Cardgrid() {
   const [view, setView] = useState('cards')
@@ -31,14 +32,14 @@ export default function Cardgrid() {
     <div>
       {view === 'cards' ? (
         <ul>
-          {questionData.map((props) => (
-            <li key={props.id}>
+          {questionData.map((id, name, question ) => (
+            <li key={id}>
               <QuestionCard
-                cardId={props.id}
+                cardId={id}
                 cardSelect={cardSelect}
                 handleView={handleForm}
-                name={props.name}
-                question={props.question}
+                name={name}
+                question={question}
               />
             </li>
           ))}

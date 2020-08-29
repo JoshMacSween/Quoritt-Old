@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import {Row, Col, Container, Jumbotron, Button} from 'react-bootstrap'
+import {Jumbotron, Button} from 'react-bootstrap'
 
 export default function Greet() {
   // const imgUrl="https://ploughshares.ca/wp-content/uploads/2019/11/blue-universe-956981-1500x844.jpg"

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import Nvbr from './Nav/Nvbr'
 import Cardgrid from './QCard/Cardgrid'
 import Greet from './Greet'
-import Qform from './QCard/Qform'
+
 
 function App() {
   return (
