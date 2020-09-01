@@ -1,26 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import QuestionCard from './QuestionCard'
 import Qform from './Qform'
-import {questionData} from '/index.js'
 import axios from 'axios'
 
 export default function Cardgrid() {
   const [view, setView] = useState('cards')
   const [activeCard, setActiveCard] = useState('')
+  const [questions, setQuestions] = useState([])
+
+  useEffect(() => {
+    const fetchCards = async () => {
+      const response = await axios.get('http://localhost:4000/questionData')
+      console.log(response)
+      if (response.status < 400) {
+        const fetchedCards = response.data
+        console.log(`fetched cards: ${fetchedCards}`)
+        setQuestions(fetchedCards)
+      }
+    }
+    fetchCards()
+  }, [])
+
+  useEffect(() => {
+    console.log(`The state is currently ${view}`)
+  }, [view])
 
   const handleForm = () => {
     setView('form')
-    console.log(`The state is currently ${view}`)
   }
 
   const handleSwitchCards = () => {
     setView('cards')
-    console.log(`The state is currently ${view}`)
   }
 
   const backHandler = () => {
     setView('cards')
-    console.log(`Returned to ${view}`)
   }
 
   const cardSelect = (cardId) => {
@@ -32,20 +46,24 @@ export default function Cardgrid() {
     <div>
       {view === 'cards' ? (
         <ul>
-          {questionData.map((id, name, question ) => (
-            <li key={id}>
+          {questions.map((props) => (
+            <li key={props.id}>
               <QuestionCard
-                cardId={id}
+                cardId={props.id}
                 cardSelect={cardSelect}
                 handleView={handleForm}
-                name={name}
-                question={question}
+                name={props.name}
+                question={props.question}
               />
             </li>
           ))}
         </ul>
       ) : (
-        <Qform cardId={activeCard} handleView={handleSwitchCards} backHandler={backHandler} />
+        <Qform
+          cardId={activeCard}
+          handleView={handleSwitchCards}
+          backHandler={backHandler}
+        />
       )}
     </div>
   )
