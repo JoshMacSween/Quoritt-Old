@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import QuestionCard from './QuestionCard'
 import Qform from './Qform'
 import axios from 'axios'
+import Greet from '../Greet'
 
 export default function Cardgrid() {
   const [view, setView] = useState('cards')
@@ -42,8 +43,13 @@ export default function Cardgrid() {
     console.log(`Set active card to card ${cardId}`)
   }
 
+  const newQuestion = () => {
+    alert("Bleep Bloop")
+  }
+
   return (
     <div>
+      <Greet newQuestion={newQuestion} />
       {view === 'cards' ? (
         <ul>
           {questions.map((props) => (
