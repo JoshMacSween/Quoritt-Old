@@ -1,7 +1,6 @@
 import React from 'react'
 import './index.css'
 import { Jumbotron, Button } from 'react-bootstrap'
-
 export default function Greet(props) {
   // const imgUrl="https://ploughshares.ca/wp-content/uploads/2019/11/blue-universe-956981-1500x844.jpg"
   const imgUrl =
@@ -19,7 +18,6 @@ export default function Greet(props) {
           answers, and the best ones will rise to the top. Or start a new one by
           dropping your own!
         </h4>
-
         <Button onClick={props.newQuestion}>Post a Question</Button>
       </Jumbotron>
     </div>

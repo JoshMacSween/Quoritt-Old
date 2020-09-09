@@ -3,11 +3,13 @@ import QuestionCard from './QuestionCard'
 import Qform from './Qform'
 import axios from 'axios'
 import Greet from '../Greet'
+import NewQuestionModal from './NewQuestionModal'
 
 export default function Cardgrid() {
   const [view, setView] = useState('cards')
   const [activeCard, setActiveCard] = useState('')
   const [questions, setQuestions] = useState([])
+  const [qModal, setQModal] = useState(false)
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -43,13 +45,22 @@ export default function Cardgrid() {
     console.log(`Set active card to card ${cardId}`)
   }
 
+  useEffect(() => {
+    console.log(`The modal view is set to ${qModal}`)
+  }, [qModal])
+
   const newQuestion = () => {
-    alert("Bleep Bloop")
+    setQModal(true)
+  }
+
+  const handleClose = () => {
+    setQModal(false)
   }
 
   return (
     <div>
       <Greet newQuestion={newQuestion} />
+      {qModal === true ? <NewQuestionModal handleClose={handleClose} /> : null}
       {view === 'cards' ? (
         <ul>
           {questions.map((props) => (
