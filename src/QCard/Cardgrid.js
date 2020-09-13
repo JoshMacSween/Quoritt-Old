@@ -6,6 +6,7 @@ import Greet from '../Greet'
 import NewQuestionModal from './NewQuestionModal'
 
 export default function Cardgrid() {
+  const [newQuestion, setNewQuestion] = useState('')
   const [view, setView] = useState('cards')
   const [activeCard, setActiveCard] = useState('')
   const [questions, setQuestions] = useState([])
@@ -28,6 +29,27 @@ export default function Cardgrid() {
     console.log(`The state is currently ${view}`)
   }, [view])
 
+  const handleAddQuestion = () => {
+    const Q = {
+      question: newQuestion
+    }
+    postQuestion(Q)
+  }
+
+  const postQuestion = async (question) => {
+    const response = await axios.post(
+      'http://localhost:4000/questionData',
+      question
+    )
+    console.log(response)
+    if (response.status < 400) {
+      const postedQ = response.data
+      console.log(`posted ${postedQ} to the server`)
+      setQuestions([...questions, postedQ])
+      setQModal(false)
+    }
+  }
+
   const handleForm = () => {
     setView('form')
   }
@@ -49,7 +71,7 @@ export default function Cardgrid() {
     console.log(`The modal view is set to ${qModal}`)
   }, [qModal])
 
-  const newQuestion = () => {
+  const postQuestionButton = () => {
     setQModal(true)
   }
 
@@ -57,10 +79,26 @@ export default function Cardgrid() {
     setQModal(false)
   }
 
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    setNewQuestion(event.target.value)
+  }
+
+  const handleOnSubmit = (event) => {
+    event.preventDefault()
+  }
   return (
     <div>
-      <Greet newQuestion={newQuestion} />
-      {qModal === true ? <NewQuestionModal handleClose={handleClose} /> : null}
+      <Greet newQuestion={postQuestionButton} />
+      {qModal === true ? (
+        <NewQuestionModal
+          handleClose={handleClose}
+          handleChange={handleChange}
+          handleOnSubmit={handleOnSubmit}
+          newQuestion={newQuestion}
+          handleAddQuestion={handleAddQuestion}
+        />
+      ) : null}
       {view === 'cards' ? (
         <ul>
           {questions.map((props) => (
