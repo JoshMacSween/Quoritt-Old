@@ -3,9 +3,14 @@ import React from 'react'
 export default function NewQuestionForm(props) {
   return (
     <section>
-      <h2>Posting new question</h2>
-      <form onSubmit={props.handleOnSubmit}>
-        <input value={props.newQuestion} onChange={props.handleChange}></input>
+
+      <form onSubmit={props.handleOnSubmit} className="newQuestionForm">
+        <label>Question</label>
+          <input // would like textarea here, would prefer react-bootstrap
+            value={props.newQuestion}
+            onChange={props.handleChange}
+            as='textarea'
+          ></input>
         <button onClick={props.handleAddQuestion}>Send</button>
       </form>
     </section>

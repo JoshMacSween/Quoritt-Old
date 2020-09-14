@@ -6,11 +6,12 @@ import Greet from '../Greet'
 import NewQuestionModal from './NewQuestionModal'
 
 export default function Cardgrid() {
+  // too many states only being used once, refactor with custom hooks?
   const [newQuestion, setNewQuestion] = useState('')
   const [view, setView] = useState('cards')
   const [activeCard, setActiveCard] = useState('')
   const [questions, setQuestions] = useState([])
-  const [qModal, setQModal] = useState(false)
+  const [modalView, showModal] = useState(false)
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -31,7 +32,7 @@ export default function Cardgrid() {
 
   const handleAddQuestion = () => {
     const Q = {
-      question: newQuestion
+      question: newQuestion,
     }
     postQuestion(Q)
   }
@@ -46,7 +47,7 @@ export default function Cardgrid() {
       const postedQ = response.data
       console.log(`posted ${postedQ} to the server`)
       setQuestions([...questions, postedQ])
-      setQModal(false)
+      showModal(false)
     }
   }
 
@@ -64,19 +65,19 @@ export default function Cardgrid() {
 
   const cardSelect = (cardId) => {
     setActiveCard(cardId)
-    console.log(`Set active card to card ${cardId}`)
+    console.log(`Set active card to card ${cardId}`) // would rather use testing instead of console logs
   }
 
   useEffect(() => {
-    console.log(`The modal view is set to ${qModal}`)
-  }, [qModal])
+    console.log(`The modal view is set to ${modalView}`)
+  }, [modalView])
 
   const postQuestionButton = () => {
-    setQModal(true)
+    showModal(true)
   }
 
   const handleClose = () => {
-    setQModal(false)
+    showModal(false)
   }
 
   const handleChange = (event) => {
@@ -90,7 +91,7 @@ export default function Cardgrid() {
   return (
     <div>
       <Greet newQuestion={postQuestionButton} />
-      {qModal === true ? (
+      {modalView === true ? (
         <NewQuestionModal
           handleClose={handleClose}
           handleChange={handleChange}
