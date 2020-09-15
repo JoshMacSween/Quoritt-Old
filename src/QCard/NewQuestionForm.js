@@ -7,7 +7,7 @@ export default function NewQuestionForm(props) {
       <form onSubmit={props.handleOnSubmit} className="newQuestionForm">
         <label>Question</label>
           <input // would like textarea here, would prefer react-bootstrap
-            value={props.newQuestion}
+            value={props.newQuestion.question}
             onChange={props.handleChange}
             as='textarea'
           ></input>

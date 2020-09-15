@@ -7,7 +7,7 @@ import NewQuestionModal from './NewQuestionModal'
 
 export default function Cardgrid() {
   // too many states only being used once, refactor with custom hooks?
-  const [newQuestion, setNewQuestion] = useState('')
+  const [newQuestion, setNewQuestion] = useState({ name: '', question: '' })
   const [view, setView] = useState('cards')
   const [activeCard, setActiveCard] = useState('')
   const [questions, setQuestions] = useState([])
@@ -32,7 +32,8 @@ export default function Cardgrid() {
 
   const handleAddQuestion = () => {
     const Q = {
-      question: newQuestion,
+      question: newQuestion.question,
+      name: 'Josh MacSween',
     }
     postQuestion(Q)
   }
@@ -49,6 +50,11 @@ export default function Cardgrid() {
       setQuestions([...questions, postedQ])
       showModal(false)
     }
+  }
+
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    setNewQuestion({...newQuestion, question: event.target.value })
   }
 
   const handleForm = () => {
@@ -78,11 +84,6 @@ export default function Cardgrid() {
 
   const handleClose = () => {
     showModal(false)
-  }
-
-  const handleChange = (event) => {
-    console.log(event.target.value)
-    setNewQuestion(event.target.value)
   }
 
   const handleOnSubmit = (event) => {
