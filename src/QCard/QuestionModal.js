@@ -2,18 +2,18 @@ import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import NewQuestionForm from './NewQuestionForm'
 
-export default function NewQuestionModal({
+export default function QuestionModal({
   handleChange,
-  handleClose,
+  handleCloseModal,
   handleOnSubmit,
   newQuestion,
-  handleAddQuestion
+  handleAddQuestion,
 }) {
   return (
     <div className='questionModal'>
       <Modal
         show={true}
-        onHide={handleClose}
+        onHide={handleCloseModal}
         centered
         size='lg'
         aria-labelledby='contained-modal-title-vcenter'
@@ -24,21 +24,13 @@ export default function NewQuestionModal({
         </Modal.Header>
         <Modal.Body>
           <NewQuestionForm
-            handleClose={handleClose}
+            handleCloseModal={handleCloseModal}
             handleChange={handleChange}
             handleOnSubmit={handleOnSubmit}
             newQuestion={newQuestion}
             handleAddQuestion={handleAddQuestion}
           />
         </Modal.Body>
-        <Modal.Footer>
-          {/* <Button variant='secondary' onClick={props.handleClose}>
-            Close
-          </Button>
-          <Button variant='primary' onClick={props.handleClose}>
-            Save Changes
-          </Button> */}
-        </Modal.Footer>
       </Modal>
     </div>
   )

@@ -3,11 +3,13 @@ import QuestionCard from './QuestionCard'
 import Qform from './Qform'
 import axios from 'axios'
 import Greet from '../Greet'
-import NewQuestionModal from './NewQuestionModal'
+import QuestionModal from './QuestionModal'
 
 export default function Cardgrid() {
   // too many states only being used once, refactor with custom hooks?
   const [newQuestion, setNewQuestion] = useState({ name: '', question: '' })
+  const [newComment, setNewComment] = useState('Good question')
+  const [commentCards, setComments] = useState(newComment)
   const [view, setView] = useState('cards')
   const [activeCard, setActiveCard] = useState('')
   const [questions, setQuestions] = useState([])
@@ -29,6 +31,27 @@ export default function Cardgrid() {
   useEffect(() => {
     console.log(`The state is currently ${view}`)
   }, [view])
+
+  // const handleAddComment = () => {
+  //   const C = {
+  //     comment: newComment
+  //   }
+  //   postComment(C)
+  // }
+
+  // postComment = async => (comment) => {
+  //   const resonse = await axios.post(
+  //     'http://localhost:4000/questionData/Comments',
+  //     comment
+  //   )
+  //   console.log(response)
+  //   if (response.status < 400) {
+  //     const postedC = response.data
+  //     console.log(`posted ${postedC} to the server`)
+  //     setNewComment()
+
+  //   }
+  // }
 
   const handleAddQuestion = () => {
     const Q = {
@@ -54,7 +77,7 @@ export default function Cardgrid() {
 
   const handleChange = (event) => {
     console.log(event.target.value)
-    setNewQuestion({...newQuestion, question: event.target.value })
+    setNewQuestion({ ...newQuestion, question: event.target.value })
   }
 
   const handleForm = () => {
@@ -82,7 +105,7 @@ export default function Cardgrid() {
     showModal(true)
   }
 
-  const handleClose = () => {
+  const handleCloseModal = () => {
     showModal(false)
   }
 
@@ -93,8 +116,8 @@ export default function Cardgrid() {
     <div>
       <Greet newQuestion={postQuestionButton} />
       {modalView === true ? (
-        <NewQuestionModal
-          handleClose={handleClose}
+        <QuestionModal
+          handleCloseModal={handleCloseModal}
           handleChange={handleChange}
           handleOnSubmit={handleOnSubmit}
           newQuestion={newQuestion}
@@ -118,6 +141,7 @@ export default function Cardgrid() {
       ) : (
         <Qform
           cardId={activeCard}
+          handleOnSubmit={handleOnSubmit}
           handleView={handleSwitchCards}
           backHandler={backHandler}
         />
