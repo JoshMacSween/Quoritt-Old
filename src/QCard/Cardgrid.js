@@ -6,8 +6,11 @@ import Greet from '../Greet'
 import QuestionModal from './QuestionModal'
 
 export default function Cardgrid() {
-  // too many states only being used once, refactor with custom hooks?
-  const [newQuestion, setNewQuestion] = useState({ name: '', question: '' })
+  const [newQuestion, setNewQuestion] = useState({
+    name: '',
+    question: '',
+    likes: 0,
+  })
   const [newComment, setNewComment] = useState('Good question')
   const [commentCards, setComments] = useState(newComment)
   const [view, setView] = useState('cards')
@@ -53,10 +56,23 @@ export default function Cardgrid() {
   //   }
   // }
 
+  function addLikes(cardId) {
+    const updatedQuestions = questions.map((question) => {
+      if (cardId === question.id) {
+        return { ...question, likes: question.likes + 1 }
+      } else {
+        return question
+      }
+    })
+    console.log(`cardId: ${cardId}`)
+    setQuestions(updatedQuestions)
+  }
+
   const handleAddQuestion = () => {
     const Q = {
       question: newQuestion.question,
       name: 'Josh MacSween',
+      likes: 0,
     }
     postQuestion(Q)
   }
@@ -130,6 +146,8 @@ export default function Cardgrid() {
             <li key={props.id}>
               <QuestionCard
                 cardId={props.id}
+                likes={props.likes}
+                addLikes={addLikes}
                 cardSelect={cardSelect}
                 handleView={handleForm}
                 name={props.name}

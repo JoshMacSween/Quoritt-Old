@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
-import { BiLike } from 'react-icons/bi';
+import { BiLike } from 'react-icons/bi'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
 
@@ -9,14 +9,14 @@ export default function QuestionCard(props) {
     <div>
       <Card className='Qcard'>
         <Card.Body onClick={() => props.cardSelect(props.cardId)}>
-          {/* <Avatar avatar={testQuest.avatar} /> */}
           <h2>
             @<i>{props.name}</i>
           </h2>
           <p>{props.question}</p>
           <Button onClick={props.handleView}>Reply</Button>
-          <Button>
-            <BiLike />
+          <Button onClick={() => props.addLikes(props.cardId)}>
+            <BiLike  />
+            {props.likes}
           </Button>
         </Card.Body>
       </Card>

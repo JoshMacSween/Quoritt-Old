@@ -3,37 +3,32 @@
     {
       "id": 1,
       "name": "Ohmsford Lombsloft",
+      "likes": 0,
       "question": "When will great Cthulhu rise from his slumber in R'lyeh"
     },
     {
       "id": 2,
       "name": "Henry Zebrowski",
+      "likes": 0,
       "question": "How do we know the reptilians aren't in power?"
     },
     {
       "id": 3,
       "name": "The Real Eric Andre",
+      "likes": 0,
       "question": "Eric Andre for prez, who's with me?"
     },
     {
       "question": "Is the moon even real?",
       "name": "Josh MacSween",
+      "likes": 0,
       "id": 4
     },
     {
       "question": "Australia is a hoax",
       "name": "Josh MacSween",
+      "likes": 0,
       "id": 5
-    },
-    {
-      "question": "Blep",
-      "name": "Josh MacSween",
-      "id": 6
-    },
-    {
-      "question": "Will this work?",
-      "name": "Josh MacSween",
-      "id": 7
     }
   ]
 }

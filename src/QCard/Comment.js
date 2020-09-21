@@ -2,14 +2,14 @@ import React from 'react'
 import { BiLike } from 'react-icons/bi'
 import { Button, Card } from 'react-bootstrap'
 
-export default function Comment() {
+export default function Comment(props) {
   return (
     <div>
       <Card>
         <Card.Title>This is a Title</Card.Title>
         <Card.Body>This is a Comment</Card.Body>
         <Button>
-          <BiLike />
+          <BiLike onClick={props.addLikes} />
         </Button>
       </Card>
     </div>
