@@ -5,18 +5,20 @@ import axios from 'axios'
 import Greet from '../Greet'
 import QuestionModal from './QuestionModal'
 
-export default function Cardgrid() {
-  const [newQuestion, setNewQuestion] = useState({
-    name: '',
-    question: '',
-    likes: 0,
-  })
-  const [newComment, setNewComment] = useState('Good question')
-  const [commentCards, setComments] = useState(newComment)
-  const [view, setView] = useState('cards')
-  const [activeCard, setActiveCard] = useState('')
-  const [questions, setQuestions] = useState([])
-  const [modalView, showModal] = useState(false)
+export default function Cardgrid({
+  sortLikes,
+  view,
+  activeCard,
+  questions,
+  modalView,
+  setQuestions,
+  newQuestion,
+  showModal,
+  setView,
+  setNewQuestion,
+  setActiveCard,
+}) {
+
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -29,7 +31,7 @@ export default function Cardgrid() {
       }
     }
     fetchCards()
-  }, [])
+  }, [setQuestions])
 
   useEffect(() => {
     console.log(`The state is currently ${view}`)
@@ -130,7 +132,7 @@ export default function Cardgrid() {
   }
   return (
     <div>
-      <Greet newQuestion={postQuestionButton} />
+      <Greet newQuestionButton={postQuestionButton} />
       {modalView === true ? (
         <QuestionModal
           handleCloseModal={handleCloseModal}
@@ -152,6 +154,7 @@ export default function Cardgrid() {
                 handleView={handleForm}
                 name={props.name}
                 question={props.question}
+                handleChange={handleChange}
               />
             </li>
           ))}

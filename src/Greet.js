@@ -18,7 +18,7 @@ export default function Greet(props) {
           answers, and the best ones will rise to the top. Or start a new one by
           dropping your own!
         </h4>
-        <Button onClick={props.newQuestion}>Post a Question</Button>
+        <Button onClick={props.newQuestionButton}>Post a Question</Button>
       </Jumbotron>
     </div>
   )
