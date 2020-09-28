@@ -15,12 +15,15 @@ export default function QuestionCard(props) {
       >
         <Card.Body onClick={() => props.cardSelect(props.cardId)}>
           <h2>
-            @<i>{props.name}</i>  <FcLike /> {props.likes}
+            @<i>{props.name}</i>
           </h2>
 
           <p>{props.question}</p>
 
           <Button onClick={props.handleView}>Reply</Button>
+          <Button className="heart">
+            <FcLike  />{props.likes}
+          </Button>
           <Button className="likeDislike" onClick={() => props.removeLikes(props.cardId)}>
             <BiDislike />
           </Button>
