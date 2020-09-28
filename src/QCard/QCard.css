@@ -1,19 +1,24 @@
 .Qcard {
-  max-width: 40%;
   margin-bottom: 1em;
   font-family: droid sans;
   font-size: 1em;
   background-color: #fff;
-  /* font-family: droid sans; */
 }
 
 .Qcard:hover {
   background-color: #ccc;
-  transition: 0.4s
+  transition: 0.4s;
+}
+
+.Qcard_selected {
+  border: 1px solid grey;
+  transition: 0.8s;
+  box-shadow: 2px 1.5px;
 }
 
 .Qcard button {
   float: right;
+  margin: 2px;
 }
 
 .Qcard h2 {
@@ -32,5 +37,38 @@
 }
 
 .form-buttons {
-  margin: 0.5em
+  margin: 0.5em;
+}
+.card_container {
+  overflow: auto;
+}
+.view_left {
+  float: left;
+  width: 45%;
+}
+.view_right {
+  margin-left: 5px;
+  float: left;
+  width: calc(55% - 10px);
+}
+
+.replyCard {
+  font-family: droid sans;
+  font-size: 1em;
+  min-width: 40%;
+  margin-bottom: 19px;
+}
+
+.replyCard Button {
+  padding: 10px;
+}
+
+.replyCard h2 {
+  font-size: 1.5em;
+  font-family: Roboto Slab;
+}
+
+.view_right ul {
+  margin-right: 2em;
+  padding-left: 1em;
 }

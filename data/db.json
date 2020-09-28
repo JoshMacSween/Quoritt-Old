@@ -4,31 +4,61 @@
       "id": 1,
       "name": "Ohmsford Lombsloft",
       "likes": 0,
-      "question": "When will great Cthulhu rise from his slumber in R'lyeh"
+      "question": "When will great Cthulhu rise from his slumber in R'lyeh",
+      "replies": [
+        {
+          "id": 1,
+          "cardId":1,
+          "name": "SomeOtherGuy",
+          "reply": "One day, when the stars align."
+        },
+        {
+          "id": 2,
+          "cardId":1,
+          "name": "CompletelyDifferentPerson",
+          "reply": "Ur r dumb"
+        }
+      ]
     },
     {
       "id": 2,
       "name": "Henry Zebrowski",
       "likes": 0,
-      "question": "How do we know the reptilians aren't in power?"
+      "question": "How do we know the reptilians aren't in power?",
+      "replies": [
+        {
+          "id": 1,
+          "cardId":1,
+          "name": "Sk8er boi",
+          "reply": "how does toaster work"
+        },
+        {
+          "id": 2,
+          "cardId":1,
+          "name": "User3",
+          "reply": "We dont, they're here man"
+        }
+      ]
     },
     {
       "id": 3,
       "name": "The Real Eric Andre",
       "likes": 0,
-      "question": "Eric Andre for prez, who's with me?"
-    },
-    {
-      "question": "Is the moon even real?",
-      "name": "Josh MacSween",
-      "likes": 0,
-      "id": 4
-    },
-    {
-      "question": "Australia is a hoax",
-      "name": "Josh MacSween",
-      "likes": 0,
-      "id": 5
+      "question": "Eric Andre for prez, who's with me?",
+      "replies": [
+        {
+          "id": 1,
+          "cardId":1,
+          "name": "DumGuy23",
+          "reply": "Your question sucks"
+        },
+        {
+          "id": 2,
+          "cardId":1,
+          "name": "CanadianGuy1",
+          "reply": "Ur Dumb"
+        }
+      ]
     }
   ]
 }

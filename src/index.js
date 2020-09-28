@@ -6,21 +6,18 @@ import Cardgrid from './QCard/Cardgrid'
 import {orderBy} from 'lodash'
 
 function App() {
-  const [newQuestion, setNewQuestion] = useState({
-    name: '',
-    question: '',
-    likes: 0,
-  })
+
   // const [newComment, setNewComment] = useState('Good question')
   // const [commentCards, setComments] = useState(newComment)
   const [view, setView] = useState('cards')
-  const [activeCard, setActiveCard] = useState('')
+  const [activeCard, setActiveCard] = useState(1)
   const [questions, setQuestions] = useState([])
   const [modalView, showModal] = useState(false)
 
   const sortLikes = () => {
     return orderBy(questions, ['likes'], ['desc'])
   }
+
   return (
     <div className='App'>
       <Nvbr />

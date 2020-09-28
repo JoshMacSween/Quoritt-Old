@@ -4,6 +4,7 @@ import Qform from './Qform'
 import axios from 'axios'
 import Greet from '../Greet'
 import QuestionModal from './QuestionModal'
+import ReplyCard from './ReplyCard'
 
 export default function Cardgrid({
   sortLikes,
@@ -12,13 +13,11 @@ export default function Cardgrid({
   questions,
   modalView,
   setQuestions,
-  newQuestion,
   showModal,
   setView,
-  setNewQuestion,
   setActiveCard,
 }) {
-
+  const [newQuestion, setNewQuestion] = useState({})
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -121,6 +120,12 @@ export default function Cardgrid({
 
   const postQuestionButton = () => {
     showModal(true)
+    setNewQuestion({
+      name: '',
+      question: '',
+      likes: 0,
+      replies: [],
+    })
   }
 
   const handleCloseModal = () => {
@@ -129,6 +134,28 @@ export default function Cardgrid({
 
   const handleOnSubmit = (event) => {
     event.preventDefault()
+  }
+  function getReplies() {
+    const filterQuestions = questions.filter((question) => {
+      return (
+        question.replies &&
+        question.replies.length > 0 &&
+        activeCard === question.id
+      )
+    })
+    let result = null
+    if (filterQuestions) {
+      filterQuestions.forEach((question) => {
+        result = question.replies.map((reply) => {
+          return (
+            <li key={reply.id}>
+              <ReplyCard reply={reply.reply} name={reply.name} />
+            </li>
+          )
+        })
+      })
+    }
+    return result
   }
   return (
     <div>
@@ -143,22 +170,31 @@ export default function Cardgrid({
         />
       ) : null}
       {view === 'cards' ? (
-        <ul>
-          {questions.map((props) => (
-            <li key={props.id}>
-              <QuestionCard
-                cardId={props.id}
-                likes={props.likes}
-                addLikes={addLikes}
-                cardSelect={cardSelect}
-                handleView={handleForm}
-                name={props.name}
-                question={props.question}
-                handleChange={handleChange}
-              />
-            </li>
-          ))}
-        </ul>
+        <div className='card_container'>
+          <div className='view_left'>
+            <ul>
+              {questions.map((props) => (
+                <li key={props.id}>
+                  <QuestionCard
+                    // newQuestion={newQuestion}
+                    activeCard={activeCard}
+                    cardId={props.id}
+                    likes={props.likes}
+                    addLikes={addLikes}
+                    cardSelect={cardSelect}
+                    handleView={handleForm}
+                    name={props.name}
+                    question={props.question}
+                    handleChange={handleChange}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className='view_right'>
+            <ul>{getReplies()}</ul>
+          </div>
+        </div>
       ) : (
         <Qform
           cardId={activeCard}

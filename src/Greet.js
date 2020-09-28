@@ -9,6 +9,8 @@ export default function Greet(props) {
     backgroundImage: 'url(' + imgUrl + ')',
   }
 
+  
+
   return (
     <div>
       <Jumbotron style={divStyle}>

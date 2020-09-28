@@ -5,9 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
 
 export default function QuestionCard(props) {
+  console.log(props.activeCard, props.cardId)
   return (
     <div>
-      <Card className='Qcard'>
+      <Card
+        className={
+          props.activeCard === props.cardId ? 'Qcard Qcard_selected' : 'Qcard'
+        }
+      >
         <Card.Body onClick={() => props.cardSelect(props.cardId)}>
           <h2>
             @<i>{props.name}</i>
@@ -15,7 +20,7 @@ export default function QuestionCard(props) {
           <p>{props.question}</p>
           <Button onClick={props.handleView}>Reply</Button>
           <Button onClick={() => props.addLikes(props.cardId)}>
-            <BiLike  />
+            <BiLike />
             {props.likes}
           </Button>
         </Card.Body>
