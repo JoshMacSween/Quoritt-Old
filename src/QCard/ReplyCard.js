@@ -3,6 +3,7 @@ import {Card, Button} from 'react-bootstrap'
 import { BiLike } from 'react-icons/bi'
 
 export default function ReplyCard({reply, name, addLikes, cardId, likes}) {
+  console.log(name)
   return (
     <div className="replyCard">
       <Card>
@@ -11,7 +12,7 @@ export default function ReplyCard({reply, name, addLikes, cardId, likes}) {
           <p>{reply}</p>
           <Button onClick={() => addLikes(cardId)}>
             <BiLike />
-            {likes}
+              {likes}
           </Button>
         </Card.Body>
       </Card>

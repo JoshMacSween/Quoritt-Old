@@ -8,15 +8,17 @@
       "replies": [
         {
           "id": 1,
-          "cardId":1,
+          "cardId": 1,
           "name": "SomeOtherGuy",
-          "reply": "One day, when the stars align."
+          "reply": "One day, when the stars align.",
+          "likes": 0
         },
         {
           "id": 2,
-          "cardId":1,
+          "cardId": 1,
           "name": "CompletelyDifferentPerson",
-          "reply": "Ur r dumb"
+          "reply": "Ur r dumb",
+          "likes": 0
         }
       ]
     },
@@ -28,13 +30,13 @@
       "replies": [
         {
           "id": 1,
-          "cardId":1,
+          "cardId": 1,
           "name": "Sk8er boi",
           "reply": "how does toaster work"
         },
         {
           "id": 2,
-          "cardId":1,
+          "cardId": 1,
           "name": "User3",
           "reply": "We dont, they're here man"
         }
@@ -48,13 +50,13 @@
       "replies": [
         {
           "id": 1,
-          "cardId":1,
+          "cardId": 1,
           "name": "DumGuy23",
           "reply": "Your question sucks"
         },
         {
           "id": 2,
-          "cardId":1,
+          "cardId": 1,
           "name": "CanadianGuy1",
           "reply": "Ur Dumb"
         }

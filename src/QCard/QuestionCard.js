@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
-import { BiLike } from 'react-icons/bi'
+import { BiLike, BiDislike } from 'react-icons/bi'
+import {FcLike} from 'react-icons/fc'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './QCard.css'
 
 export default function QuestionCard(props) {
-  console.log(props.activeCard, props.cardId)
   return (
     <div>
       <Card
@@ -15,13 +15,17 @@ export default function QuestionCard(props) {
       >
         <Card.Body onClick={() => props.cardSelect(props.cardId)}>
           <h2>
-            @<i>{props.name}</i>
+            @<i>{props.name}</i>  <FcLike /> {props.likes}
           </h2>
+
           <p>{props.question}</p>
+
           <Button onClick={props.handleView}>Reply</Button>
-          <Button onClick={() => props.addLikes(props.cardId)}>
+          <Button className="likeDislike" onClick={() => props.removeLikes(props.cardId)}>
+            <BiDislike />
+          </Button>
+          <Button className="likeDislike" onClick={() => props.addLikes(props.cardId)}>
             <BiLike />
-            {props.likes}
           </Button>
         </Card.Body>
       </Card>

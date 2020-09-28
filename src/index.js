@@ -23,6 +23,7 @@ function App() {
       <Nvbr />
       <span className='cards'>
         <Cardgrid
+          sortLikes={() => sortLikes}
           view={view}
           setView={setView}
           activeCard={activeCard}

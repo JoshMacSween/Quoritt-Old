@@ -69,6 +69,19 @@ export default function Cardgrid({
     setQuestions(updatedQuestions)
   }
 
+  function removeLikes(cardId) {
+    const updatedQuestions = questions.map((question) => {
+      if (cardId === question.id) {
+        return { ...question, likes: question.likes - 1 }
+      } else {
+        console.log(question)
+        return question
+      }
+    })
+    console.log(`cardId: ${cardId}`)
+    setQuestions(updatedQuestions)
+  }
+
   const handleAddQuestion = () => {
     const Q = {
       question: newQuestion.question,
@@ -149,7 +162,13 @@ export default function Cardgrid({
         result = question.replies.map((reply) => {
           return (
             <li key={reply.id}>
-              <ReplyCard reply={reply.reply} name={reply.name} />
+              <ReplyCard
+                reply={reply.reply}
+                name={reply.name}
+                likes={sortLikes()}
+                addLikes={addLikes}
+
+              />
             </li>
           )
         })
@@ -181,6 +200,7 @@ export default function Cardgrid({
                     cardId={props.id}
                     likes={props.likes}
                     addLikes={addLikes}
+                    removeLikes={removeLikes}
                     cardSelect={cardSelect}
                     handleView={handleForm}
                     name={props.name}
