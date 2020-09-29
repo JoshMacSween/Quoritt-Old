@@ -52,7 +52,7 @@
           "id": 1,
           "cardId": 1,
           "name": "DumGuy23",
-          "reply": "Your question sucks"
+          "reply": "Yeah, nah"
         },
         {
           "id": 2,
@@ -61,6 +61,12 @@
           "reply": "Ur Dumb"
         }
       ]
+    },
+    {
+      "question": "Is the moon hollow",
+      "name": "Josh MacSween",
+      "likes": 0,
+      "id": 4
     }
   ]
 }

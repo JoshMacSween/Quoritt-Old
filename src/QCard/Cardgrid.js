@@ -6,6 +6,7 @@ import Greet from '../Greet'
 import QuestionModal from './QuestionModal'
 import ReplyCard from './ReplyCard'
 
+let currentReply = ''
 export default function Cardgrid({
   sortLikes,
   view,
@@ -18,6 +19,7 @@ export default function Cardgrid({
   setActiveCard,
 }) {
   const [newQuestion, setNewQuestion] = useState({})
+  const [newReply, setNewReply] = useState({})
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -106,7 +108,8 @@ export default function Cardgrid({
   }
 
   const handleChange = (event) => {
-    console.log(event.target.value)
+    console.log('XXX', event.target.value)
+    //currentReply=event.target.value;
     setNewQuestion({ ...newQuestion, question: event.target.value })
   }
 
@@ -167,7 +170,6 @@ export default function Cardgrid({
                 name={reply.name}
                 likes={sortLikes()}
                 addLikes={addLikes}
-
               />
             </li>
           )
@@ -176,6 +178,12 @@ export default function Cardgrid({
     }
     return result
   }
+
+  const handleChangeReply = (event) => {
+    console.log('handleChangeReply', currentReply)
+    currentReply = event.target.value
+  }
+
   return (
     <div>
       <Greet newQuestionButton={postQuestionButton} />
@@ -217,10 +225,16 @@ export default function Cardgrid({
         </div>
       ) : (
         <Qform
+          questions={questions}
+          setQuestions={setQuestions}
+          handleChangeReply={handleChangeReply}
           cardId={activeCard}
+          reply={questions.replies}
           handleOnSubmit={handleOnSubmit}
+          setNewQuestions={setNewQuestion}
           handleView={handleSwitchCards}
           backHandler={backHandler}
+          currentReply={currentReply}
         />
       )}
     </div>

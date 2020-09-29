@@ -1,24 +1,39 @@
 import React from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
 
-export default function Qform({ cardId, handleView, backHandler, handleOnSubmit}) {
+export default function Qform({
+  reply,
+  cardId,
+  handleView,
+  backHandler,
+  handleOnSubmit,
+  handleChangeReply,
+
+  questions,
+  setNewQuestions,
+  currentReply
+
+}) {
   return (
-    <div>
+    <section className='repForm'>
       <Container>
-        <Form onSubmit={handleView}>
-          <Form.Label>{`Responding to card ${cardId}`}</Form.Label>
+        <form onSubmit={e=>e.preventDefault()}>
+          <label>{`Responding to card ${cardId}`}</label> <br />
+          <input as="textarea" rows="3"
+            value={reply}
+            onChange={handleChangeReply}
+            >
+
+          </input>
           <br />
-          <Form.Control
-            as='textarea'
-            placeholder='Ask me anything'
-          ></Form.Control>
-          <br />
-          <Button className="form-buttons" onClick={handleOnSubmit}>
+          <Button className='form-buttons' onClick={e=>setNewQuestions({...questions, replies: currentReply})} >
             Send
           </Button>
-          <Button className="form-buttons" onClick={backHandler}>Back</Button>
-        </Form>
+          <Button className='form-buttons'  onClick={backHandler}>
+            Back
+          </Button>
+        </form>
       </Container>
-    </div>
+    </section>
   )
 }
