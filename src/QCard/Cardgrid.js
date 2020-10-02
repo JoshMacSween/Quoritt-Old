@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import QuestionCard from './QuestionCard'
-import Qform from './Qform'
+import ReplyForm from './ReplyForm'
 import axios from 'axios'
 import Greet from '../Greet'
 import QuestionModal from './QuestionModal'
 import ReplyCard from './ReplyCard'
 
-let currentReply = ''
 export default function Cardgrid({
   sortLikes,
   view,
@@ -19,7 +18,13 @@ export default function Cardgrid({
   setActiveCard,
 }) {
   const [newQuestion, setNewQuestion] = useState({})
-  const [newReply, setNewReply] = useState({})
+  const [newReply, setNewReply] = useState({
+    name: '',
+    reply: '',
+    likes: 0
+  })
+
+  let currentReply = ''
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -58,6 +63,30 @@ export default function Cardgrid({
 
   //   }
   // }
+
+  // const addReply = (currentReply) => {
+  //   setNewQuestion({...question, replies: currentReply})
+  // }
+
+  const addReply = () => {
+    const updatedQuestions = questions.map((question) => {
+      if (question.id === activeCard) {
+        const updatedReplies = [...question.replies, newReply]
+        return { ...question, replies: updatedReplies }
+      } else {
+        return question
+      }
+    })
+    setView('cards')
+    setQuestions(updatedQuestions)
+  }
+
+  const handleChangeReply = (event) => {
+    console.log('handleChangeReply', currentReply)
+    currentReply = event.target.value
+    setNewReply({ ...newReply, reply: event.target.value })
+    // setQuestions(newReply)
+  }
 
   function addLikes(cardId) {
     const updatedQuestions = questions.map((question) => {
@@ -115,6 +144,11 @@ export default function Cardgrid({
 
   const handleForm = () => {
     setView('form')
+    setNewReply({
+      name: 'ReplyGuy',
+      reply: 'Great Question',
+      likes: 0
+    })
   }
 
   const handleSwitchCards = () => {
@@ -179,11 +213,6 @@ export default function Cardgrid({
     return result
   }
 
-  const handleChangeReply = (event) => {
-    console.log('handleChangeReply', currentReply)
-    currentReply = event.target.value
-  }
-
   return (
     <div>
       <Greet newQuestionButton={postQuestionButton} />
@@ -224,17 +253,19 @@ export default function Cardgrid({
           </div>
         </div>
       ) : (
-        <Qform
+        <ReplyForm
           questions={questions}
           setQuestions={setQuestions}
           handleChangeReply={handleChangeReply}
           cardId={activeCard}
           reply={questions.replies}
           handleOnSubmit={handleOnSubmit}
-          setNewQuestions={setNewQuestion}
+          setNewQuestion={setNewQuestion}
           handleView={handleSwitchCards}
           backHandler={backHandler}
           currentReply={currentReply}
+          newReply={newReply}
+          addReply={addReply}
         />
       )}
     </div>

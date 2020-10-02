@@ -11,8 +11,9 @@ export default function ReplyCard({reply, name, addLikes, cardId, likes}) {
           <h2><i>@{name}</i></h2>
           <p>{reply}</p>
           <Button onClick={() => addLikes(cardId)}>
-            <BiLike />
+            <BiLike>
               {likes}
+            </BiLike>
           </Button>
         </Card.Body>
       </Card>
