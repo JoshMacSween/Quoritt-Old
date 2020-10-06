@@ -12,24 +12,26 @@ export default function ReplyForm({
   questions,
   setNewQuestion,
   currentReply,
-  newReply
+  newReply,
 }) {
   return (
     <section className='repForm'>
       <Container>
         <form onSubmit={(e) => e.preventDefault()}>
-          <label>{`Responding to card ${cardId}`}</label> <br />
-          <input
-            as='textarea'
-            rows='3'
-            value={reply}
-            onChange={handleChangeReply}
-          ></input>
+          <label>
+            {/* <h4>{`Responding to card ${cardId}`}</h4> <br /> */}
+            <textarea
+              placeholder={`Responding to card ${cardId}`}
+              as='textarea'
+              rows='2'
+              cols='140'
+              value={reply}
+              onChange={handleChangeReply}
+              required
+            ></textarea>
+          </label>
           <br />
-          <Button
-            className='form-buttons'
-            onClick={() => addReply(reply)}
-          >
+          <Button className='form-buttons' onClick={() => addReply(reply)}>
             Send
           </Button>
           <Button className='form-buttons' onClick={backHandler}>
