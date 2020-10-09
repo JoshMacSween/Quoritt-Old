@@ -1,15 +1,15 @@
 import React from 'react'
-import {
-  Navbar
-} from 'react-bootstrap'
 
 export default function Nvbr() {
   return (
-    <div>
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand>Quoritt</Navbar.Brand>
-      </Navbar>
-      <br /> {/* use styling here */}
+    <div id="container">
+      <nav className="nvbr">
+        <ul>
+          <li><button hrer='#'>| Quoritt |</button></li>
+          <li><button hrer='#'>| About |</button></li>
+          <li><button hrer='#'>| Donate |</button></li>
+        </ul>
+      </nav>
     </div>
   )
 }
