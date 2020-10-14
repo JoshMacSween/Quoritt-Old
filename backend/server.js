@@ -1,26 +1,17 @@
 const express = require('express')
-const cors = require('cors');
-const mongoose = require('mongoose')
-
-require('dotenv').config()
+const connectDB = require('./config/db')
 
 const app = express()
-const port = process.env.PORT || 5000
+// Connect to database
+connectDB()
+// Init middleware
+app.use(express.json({extended: false}))
 
-app.use(cors())
-app.use(express.json())
+app.get('/', (req, res) => res.send('API running'))
 
-const uri = process.env.ATLAS_URI
-mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+// Define routes
+app.use('/api/users', require('./routes/api/users'))
 
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log("Connection to MongoDB Atlas successfull")
-})
+const PORT = process.env.PORT || 5000
 
-const usersRouter = require('./routes/users')
-app.use('/users', usersRouter)
-
-app.listen(port, () => {
-  console.log(`Server listening at port ${port}`)
-})
+app.listen(PORT, () => console.log(`Server started on PORT: ${PORT}`))
